@@ -1,0 +1,30 @@
+package homework;
+
+import org.testng.annotations.Test;
+
+public class exelTest {
+	
+	
+	@Test
+	public void getdata() {
+		String path="/Users/fd/Desktop/exelTask.xlsx";
+		
+	    xls_reader data=new xls_reader(path);	
+	}
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}

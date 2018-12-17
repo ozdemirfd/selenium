@@ -1,0 +1,57 @@
+package PomDesign;
+import Pages.AllOrdersPage;
+import Pages.WebOrderLoginPage;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import Pages.WebOrderLoginPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class AllOrderTest {
+	 WebDriver driver=null;
+	 WebOrderLoginPage loginPage;
+	 AllOrdersPage allorders;
+	 
+	@BeforeTest
+	public void open() {
+		
+    	WebDriverManager.chromedriver().setup();
+		driver	=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+		 loginPage=new  WebOrderLoginPage(driver);
+		 loginPage.username.sendKeys("Tester");
+		 loginPage.password.sendKeys("test");
+		 loginPage.loginButton.click();
+	}
+	
+	@AfterTest
+	public void closeup() {
+		driver.quit();
+	}
+	@Test
+	public void verify() {
+		allorders=new AllOrdersPage(driver);
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		Assert.assertEquals(allorders.WelcomeMsg.getText(),"Welcome, Tester! | Logout");
+		
+		Assert.assertEquals(allorders.WebOrder.getText(), "Web Orders");
+		
+		Assert.assertEquals(allorders.ListOfOrder.getText(),"List of All Orders");
+		
+		for(int a = 0; a<allorders.allOrder.size(); a++) {
+			Assert.assertTrue(allorders.allOrder.get(a).isDisplayed());
+			
+		}
+		
+		
+	}
+	
+}

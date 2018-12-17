@@ -1,0 +1,124 @@
+package PomDesign;
+import org.testng.annotations.Test;
+
+import Pages.AllOrdersPage;
+import Pages.ProductsPage;
+import Pages.WebOrderLoginPage;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class AllOrderTest {
+	 WebDriver driver=null;
+	 WebOrderLoginPage loginPage;
+	 AllOrdersPage allorders;
+	 ProductsPage productPage;
+	 public WebOrderLoginTest test;
+
+	@BeforeMethod
+	public void open() {
+		
+    	WebDriverManager.chromedriver().setup();
+		driver	=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+		loginPage=new  WebOrderLoginPage(driver);
+		 loginPage.username.sendKeys("Tester");
+		 loginPage.password.sendKeys("test");
+		 loginPage.loginButton.click();
+	}
+	
+	@AfterTest
+	public void closeup() {
+		driver.quit();
+	}
+	
+//	@Test(priority=1)
+//	public void before() {
+//		test.loginUsingPom();
+//	}
+	
+	
+	@Test (priority=2)
+	public void verify() {
+		allorders=new AllOrdersPage(driver);
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		String  welcome=allorders.WelcomeMsg.getText();
+		welcome=welcome.replace(" | Logout", "");
+		Assert.assertEquals(welcome,"Welcome, Tester!");
+		
+		Assert.assertEquals(allorders.WebOrder.getText(), "Web Orders");
+		
+		Assert.assertEquals(allorders.ListOfOrder.getText(),"List of All Orders");
+		
+		for(int a = 0; a<allorders.allOrder.size(); a++) {
+			Assert.assertTrue(allorders.allOrder.get(a).isDisplayed(),"Web orders not displayes");
+			
+		}
+		
+	//	allorders.logout();
+		
+		
+	}
+	@Test (priority=3)
+	public void productTest() {
+		allorders=new AllOrdersPage(driver);
+		allorders.allOrder.get(2).click();
+		productPage=new ProductsPage(driver);
+		List<String> expectedProduct=Arrays.asList("MyMoney","FamilyAlbum","ScreenSaver");;
+		List<String> actProduct=new ArrayList<>();
+		for (WebElement prod:productPage.productName) {
+		actProduct.add(prod.getText());
+	}
+	Assert.assertEquals(actProduct, expectedProduct);
+	
+	for( WebElement row:productPage.productRow) {
+		String[] prodData=row.getText().split(" ");
+		switch(prodData[0]) {
+		case "MyMoney":
+			Assert.assertEquals(prodData[1], "$100");
+			Assert.assertEquals(prodData[2], "8%");
+		case "FamilyAlbum":
+			Assert.assertEquals(prodData[1], "$80");
+			Assert.assertEquals(prodData[2], "15%");
+		case "ScreenSaver":
+			Assert.assertEquals(prodData[1], "$20");
+			Assert.assertEquals(prodData[2], "10%");
+		default:
+			break;
+		}
+		
+	}
+	
+	
+	
+	
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

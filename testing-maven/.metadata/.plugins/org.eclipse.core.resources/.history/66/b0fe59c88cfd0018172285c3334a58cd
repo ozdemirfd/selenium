@@ -1,0 +1,22 @@
+package com.zoho;
+
+import java.util.Properties;
+import java.util.logging.LogManager;
+
+
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class zohoTest {
+	
+	WebDriver driver=null;
+	
+	WebDriverWait wait=null;
+	String path="/Users/fd/selenium/testing-maven/ZohoComExel/src/test/resources/config.properties";
+	String exelPath="";
+	Properties prop;
+   
+}
+
+

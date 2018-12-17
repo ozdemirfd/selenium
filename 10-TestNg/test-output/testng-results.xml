@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-12-04T21:29:27Z" name="Suite" finished-at="2018-12-04T21:29:27Z" duration-ms="38">
+    <groups>
+    </groups>
+    <test started-at="2018-12-04T21:29:27Z" name="Test" finished-at="2018-12-04T21:29:27Z" duration-ms="38">
+      <class name="TestCase2.DependsOn">
+        <test-method signature="LoginTest()[pri:1, instance:TestCase2.DependsOn@8c3b9d]" started-at="2018-12-04T21:29:27Z" name="LoginTest" finished-at="2018-12-04T21:29:27Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTest -->
+      </class> <!-- TestCase2.DependsOn -->
+      <class name="TestCase2.Priorty">
+        <test-method signature="LoginTest()[pri:1, instance:TestCase2.Priorty@5b94b04d]" started-at="2018-12-04T21:29:27Z" name="LoginTest" finished-at="2018-12-04T21:29:27Z" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTest -->
+        <test-method signature="PasswordChange()[pri:2, instance:TestCase2.Priorty@5b94b04d]" started-at="2018-12-04T21:29:27Z" name="PasswordChange" finished-at="2018-12-04T21:29:27Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PasswordChange -->
+      </class> <!-- TestCase2.Priorty -->
+      <class name="TestCase2.Task">
+        <test-method is-config="true" signature="login()[pri:0, instance:TestCase2.Task@561b6512]" started-at="2018-12-04T21:29:27Z" name="login" finished-at="2018-12-04T21:29:27Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="Register()[pri:1, instance:TestCase2.Task@561b6512]" started-at="2018-12-04T21:29:27Z" name="Register" finished-at="2018-12-04T21:29:27Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Register -->
+        <test-method is-config="true" signature="logout()[pri:0, instance:TestCase2.Task@561b6512]" started-at="2018-12-04T21:29:27Z" name="logout" finished-at="2018-12-04T21:29:27Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+      </class> <!-- TestCase2.Task -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

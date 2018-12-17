@@ -1,0 +1,6 @@
+00:19:21.886 [main] DEBUG package1.logTest - starting
+00:19:21.894 [main] ERROR package1.logTest - Object is NOT present
+00:25:00.100 [main] DEBUG package1.logTest - I am logging
+00:25:00.102 [main] INFO  package1.logTest - Object is present
+00:25:00.102 [main] DEBUG package1.logTest - starting
+00:25:00.102 [main] ERROR package1.logTest - Object is NOT present

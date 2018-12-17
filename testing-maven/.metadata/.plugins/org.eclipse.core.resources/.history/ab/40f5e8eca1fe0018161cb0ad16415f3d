@@ -1,0 +1,66 @@
+package PomDesign;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import Pages.AllOrdersPage;
+import Pages.OrderPage;
+import Pages.WebOrderLoginPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class OrderTest {
+	
+    WebDriver driver=null;
+	OrderPage order;
+	WebOrderLoginPage loginPage;
+	AllOrdersPage allorder;
+	
+	@Test
+	public void order(){
+		
+    	WebDriverManager.chromedriver().setup();
+		driver	=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+		loginPage=new  WebOrderLoginPage(driver);
+		 loginPage.username.sendKeys("Tester");
+		 loginPage.password.sendKeys("test");
+		 loginPage.loginButton.click();
+	
+		 allorder=new AllOrdersPage(driver);
+		 allorder.allOrder.get(2).click();
+		 
+		 order=new OrderPage(driver);
+		 
+		 order.dropdown(2);
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 order.quantity.sendKeys("4");
+		 order.price.sendKeys("123");
+		 order.discount.sendKeys("5");
+		 order.calculate.click();
+		 
+		 order.name.sendKeys("Feride");
+		 order.street.sendKeys("Ranch Road");
+		 order.city.sendKeys("Texas");
+		 order.state.sendKeys("Austin");
+		 order.zip.sendKeys("12345");
+		 order.card.get(0).click();
+		 order.cardNumber.sendKeys("123456");
+		 order.date.sendKeys("09/1982");
+		 order.process.click();
+		 driver.navigate().back();
+		 
+		 driver.quit();
+		
+		
+	}
+	
+	
+	
+	
+	
+}

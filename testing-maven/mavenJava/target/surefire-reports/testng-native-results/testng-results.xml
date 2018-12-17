@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-12-06T17:31:29Z" name="Command line suite" finished-at="2018-12-06T17:31:35Z" duration-ms="5796">
+    <groups>
+    </groups>
+    <test started-at="2018-12-06T17:31:29Z" name="Command line test" finished-at="2018-12-06T17:31:35Z" duration-ms="5796">
+      <class name="cybertek.AmazonTest">
+        <test-method signature="navigationamazon()[pri:0, instance:cybertek.AmazonTest@3cc2931c]" started-at="2018-12-06T17:31:29Z" name="navigationamazon" finished-at="2018-12-06T17:31:35Z" duration-ms="5776" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigationamazon -->
+      </class> <!-- cybertek.AmazonTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

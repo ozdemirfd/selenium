@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-12-07T02:54:33Z" name="Suite" finished-at="2018-12-07T02:55:18Z" duration-ms="45461">
+    <groups>
+    </groups>
+    <test started-at="2018-12-07T02:54:33Z" name="Test" finished-at="2018-12-07T02:55:18Z" duration-ms="45461">
+      <class name="cybertek2.CNNTest">
+        <test-method signature="navigationyahoo()[pri:0, instance:cybertek2.CNNTest@79e2c065]" started-at="2018-12-07T02:54:37Z" name="navigationyahoo" finished-at="2018-12-07T02:55:18Z" duration-ms="40873" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigationyahoo -->
+      </class> <!-- cybertek2.CNNTest -->
+      <class name="cybertek2.ABCTest">
+        <test-method signature="navigationyahoo()[pri:0, instance:cybertek2.ABCTest@478190fc]" started-at="2018-12-07T02:54:33Z" name="navigationyahoo" finished-at="2018-12-07T02:54:37Z" duration-ms="4564" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigationyahoo -->
+      </class> <!-- cybertek2.ABCTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

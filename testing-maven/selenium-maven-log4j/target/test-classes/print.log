@@ -1,0 +1,4 @@
+11:33:33.672 [main] DEBUG package1.logTest - I am logging
+11:33:33.676 [main] INFO  package1.logTest - Object is present
+11:33:33.676 [main] DEBUG package1.logTest - starting
+11:33:33.676 [main] ERROR package1.logTest - Object is NOT present
